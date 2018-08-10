@@ -44,14 +44,15 @@ const propTypes = {
 
   minRows: PropTypes.number.isRequired,
   maxRows: PropTypes.number.isRequired,
-  leftoverSpace: PropTypes.number.isRequired,
-  eventHeight: PropTypes.number.isRequired,
+  leftoverSpace: PropTypes.number,
+  eventHeight: PropTypes.number,
 }
 
 const defaultProps = {
   minRows: 0,
   maxRows: Infinity,
   leftoverSpace: 0,
+  eventHeight: 25,
 }
 
 class DateContentRow extends React.Component {

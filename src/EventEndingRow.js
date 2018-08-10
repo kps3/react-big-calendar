@@ -19,6 +19,7 @@ class EventEndingRow extends React.Component {
   }
   static defaultProps = {
     ...EventRowMixin.defaultProps,
+    eventHeight: 25,
   }
 
   render() {
