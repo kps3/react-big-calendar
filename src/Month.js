@@ -75,6 +75,7 @@ class MonthView extends React.Component {
     this._pendingSelection = []
     this.state = {
       rowLimit: 5,
+      leftoverSpace: 0,
       needLimitMeasure: true,
     }
   }
@@ -148,7 +149,12 @@ class MonthView extends React.Component {
       getters,
     } = this.props
 
-    const { needLimitMeasure, rowLimit } = this.state
+    const {
+      needLimitMeasure,
+      rowLimit,
+      leftoverSpace,
+      eventHeight,
+    } = this.state
 
     events = eventsForWeek(events, week[0], week[week.length - 1], accessors)
 
@@ -165,6 +171,8 @@ class MonthView extends React.Component {
         range={week}
         events={events}
         maxRows={rowLimit}
+        eventHeight={eventHeight}
+        leftoverSpace={leftoverSpace}
         selected={selected}
         selectable={selectable}
         components={components}
@@ -259,9 +267,16 @@ class MonthView extends React.Component {
   }
 
   measureRowLimit() {
+    const {
+      eventHeight,
+      rowLimit,
+      leftoverSpace,
+    } = this.refs.slotRow.getRowMetrics()
     this.setState({
       needLimitMeasure: false,
-      rowLimit: this.refs.slotRow.getRowLimit(),
+      rowLimit,
+      leftoverSpace,
+      eventHeight,
     })
   }
 
