@@ -186,7 +186,7 @@ class DateContentRow extends React.Component {
         <WeekWrapper isAllDay={isAllDay} {...eventRowProps}>
           <EventRow
             segments={segs}
-            ref={this.createEventRef}
+            eventRef={this.createEventRef}
             {...eventRowProps}
           />
         </WeekWrapper>
@@ -244,7 +244,7 @@ class DateContentRow extends React.Component {
 
         <div className="rbc-row-content">
           {renderHeader && (
-            <div className="rbc-row " ref={this.createHeadingRef}>
+            <div className="rbc-row" ref={this.createHeadingRef}>
               {range.map(this.renderHeadingCell)}
             </div>
           )}
