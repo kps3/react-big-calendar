@@ -100,7 +100,7 @@ class DateContentRow extends React.Component {
 
     let actualRowLimit = Math.floor(eventSpace / eventHeight)
     let boundedRowLimit = Math.max(actualRowLimit, 1)
-    let eventLevelsLimit = Math.max(actualRowLimit - 1, 1)
+    let eventLevelsLimit = Math.max(actualRowLimit, 1)
     let leftoverSpace = eventSpace - eventLevelsLimit * eventHeight
 
     return {
