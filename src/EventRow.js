@@ -12,12 +12,12 @@ class EventRow extends React.Component {
     ...EventRowMixin.defaultProps,
   }
   render() {
-    let { segments, slotMetrics: { slots }, className } = this.props
+    let { segments, slotMetrics: { slots }, className, eventRef } = this.props
 
     let lastEnd = 1
 
     return (
-      <div className={cn(className, 'rbc-row')}>
+      <div className={cn(className, 'rbc-row')} ref={eventRef}>
         {segments.reduce((row, { event, left, right, span }, li) => {
           let key = '_lvl_' + li
           let gap = left - lastEnd
